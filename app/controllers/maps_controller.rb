@@ -21,7 +21,7 @@ class MapsController < ApplicationController
     if @map.save
       redirect_to @map, notice: "Map was successfully created."
     else
-      render :new
+      render :new, status: 422
     end
   end
 
@@ -29,7 +29,7 @@ class MapsController < ApplicationController
     if @map.update(map_params)
       redirect_to @map, notice: "Map was successfully updated."
     else
-      render :edit
+      render :edit, status: 422
     end
   end
 
