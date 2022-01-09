@@ -1,6 +1,7 @@
 class Map < ApplicationRecord
   include Plottable
   has_many :listings, dependent: :destroy
+  validates :name, :latLng, :zoom, presence: true
 
   after_commit do
     cable_ready[self]

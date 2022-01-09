@@ -27,8 +27,7 @@ ActiveRecord::Schema.define(version: 2022_01_08_170125) do
   create_table "maps", force: :cascade do |t|
     t.string "name"
     t.point "latLng", default: [0.0, 0.0]
-    t.integer "zoom"
-    t.integer "10"
+    t.integer "zoom", default: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
