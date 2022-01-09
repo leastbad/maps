@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Maps</h1>
+
+<% if (Rails.application.credentials.mapbox_token || ENV.fetch("MAPBOX_TOKEN")).present? %>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @maps.each do |map| %>
+        <tr>
+          <td><%= map.name %></td>
+          <td><%= link_to 'Show', map %></td>
+          <td><%= link_to 'Edit', edit_map_path(map) %></td>
+          <td><%= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Map', new_map_path %>
+
+<% else %>
+
+  <p>
+    <strong>
+      You need to set the MAPBOX_TOKEN environment variable to use the map.
+    </strong>
+    Alternatively, you can set a <i>mapbox_token</i> in your Rails credentials file.
+  </p>
+  <p>You can obtain a token from <a href="https://www.mapbox.com/studio/account/tokens/">Mapbox</a>. You'll need to restart Puma after you setup your token.</p>
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/7whUeXYWZ7k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<% end %>

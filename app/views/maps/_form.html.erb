@@ -1,0 +1,32 @@
+<%= form_with(model: map) do |form| %>
+  <% if map.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(map.errors.count, "error") %> prohibited this map from being saved:</h2>
+
+      <ul>
+        <% map.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coordinates %>
+    <%= form.text_field :coordinates %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zoom %>
+    <%= form.number_field :zoom %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

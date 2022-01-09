@@ -1,0 +1,35 @@
+<%= stream_from @map %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <span id="name"><%= @map.name %></span>
+</p>
+
+<p>
+  <strong>Coordinates:</strong>
+  <span id="coordinates"><%= @map.coordinates %></span>
+</p>
+
+<p>
+  <strong>Zoom:</strong>
+  <span id="zoom"><%= @map.zoom %></span>
+</p>
+
+<%= link_to 'Edit', edit_map_path(@map) %> |
+<%= link_to 'Back', maps_path %>
+
+<p>Double-click to add a marker.</p>
+
+<div
+  id="map"
+  class="map"
+  data-controller="map"
+  data-reflex-permanent
+  data-id="<%= @map.id %>"
+  data-map-lat-lng-value="<%= @map.latLng.to_a %>"
+  data-map-zoom-value="<%= @map.zoom %>"
+  data-map-token-value="<%= Rails.application.credentials.mapbox_token || ENV.fetch("MAPBOX_TOKEN") %>"
+  data-map-listings-value='<%= @map.listings.plotted %>'
+>
