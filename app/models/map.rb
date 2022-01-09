@@ -12,6 +12,6 @@ class Map < ApplicationRecord
   end
 
   after_destroy do
-    cable_ready[self].redirect_to("/maps").broadcast
+    cable_ready[self].redirect_to(url: "/maps").broadcast
   end
 end
