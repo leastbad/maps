@@ -8,6 +8,10 @@ You will require a Mapbox key to be set up in your environment or your Rails cre
 
 [Get a key](https://www.mapbox.com/studio/account/tokens/)
 
+## Demo
+
+There is an instance running on Heroku: [https://stimulus-reflex-maps.herokuapp.com/](https://stimulus-reflex-maps.herokuapp.com/)
+
 ## Installation
 
 - ensure Postgres and Redis are both running and available on the usual ports
