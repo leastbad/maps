@@ -22,7 +22,10 @@ export default class extends ApplicationController {
   connect () {
     super.connect()
 
-    this.map = L.map(this.element).setView(this.latLngValue, this.zoomValue)
+    this.map = L.map(this.element, { scrollWheelZoom: false }).setView(
+      this.latLngValue,
+      this.zoomValue
+    )
 
     this.coordinates = this.latLngValue
     this.zoom = this.zoomValue
